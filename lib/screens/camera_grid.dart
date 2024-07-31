@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_web/models/patient.dart';
 
 class CameraGrid extends StatelessWidget {
@@ -28,11 +29,7 @@ class CameraGrid extends StatelessWidget {
                 arguments: patients[index],
               );
             },
-            child: CameraFeedCard(
-              patient: patients[index],
-              imageUrl:
-                  'https://www.mghf.ca/sites/default/files/styles/inline_image/public/images/2020-07/view_of_room.png?itok=6xAy8KDV', // Use a URL for each image
-            ),
+            child: CameraFeedCard(patient: patients[index]),
           );
         },
       ),
@@ -42,9 +39,8 @@ class CameraGrid extends StatelessWidget {
 
 class CameraFeedCard extends StatelessWidget {
   final Patient patient;
-  final String imageUrl;
 
-  CameraFeedCard({required this.patient, required this.imageUrl});
+  CameraFeedCard({required this.patient});
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +55,9 @@ class CameraFeedCard extends StatelessWidget {
           ),
           Expanded(
             child: Center(
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
+              child: SvgPicture.asset(
+                'assets/sample_camera_feed.svg', // Replace with your asset path
+                height: 100,
               ),
             ),
           ),
