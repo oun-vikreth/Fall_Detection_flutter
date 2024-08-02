@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
+import 'view_all_cameras.dart';
+import 'alert_email_registration.dart';
+import 'alert_email_information.dart';
+import 'settings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,7 +12,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -78,53 +81,18 @@ class _MyHomePageState extends State<MyHomePage> {
                       switch (_controller.selectedIndex) {
                         case 0:
                           _key.currentState?.closeDrawer();
-                          return const Center(
-                            child: Text(
-                              'View All Cameras',
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                  fontSize: 40),
-                            ),
-                          );
+                          return const ViewAllCameras();
                         case 1:
                           _key.currentState?.closeDrawer();
-                          return const Center(
-                            child: Text(
-                              'Alert Email Registeration',
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                  fontSize: 40),
-                            ),
-                          );
+                          return const AlertEmailRegistration();
                         case 2:
                           _key.currentState?.closeDrawer();
-                          return const Center(
-                            child: Text(
-                              'Alert Email Information',
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                  fontSize: 40),
-                            ),
-                          );
+                          return const AlertEmailInformation();
                         case 3:
                           _key.currentState?.closeDrawer();
-                          return const Center(
-                            child: Text(
-                              'Settings',
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                  fontSize: 40),
-                            ),
-                          );
+                          return const Settings();
                         default:
-                          return const Center(
-                            child: Text(
-                              'Settings',
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                  fontSize: 40),
-                            ),
-                          );
+                          return const Settings();
                       }
                     },
                   ),
@@ -172,7 +140,7 @@ class SideBarXExample extends StatelessWidget {
           icon: Icons.view_agenda,
           label: 'View All Cameras',
         ),
-        SidebarXItem(icon: Icons.add, label: 'Alert Email Registeration'),
+        SidebarXItem(icon: Icons.add, label: 'Alert Email Registration'),
         SidebarXItem(icon: Icons.info, label: 'Alert Email Information'),
         SidebarXItem(icon: Icons.settings, label: 'Settings'),
       ],
